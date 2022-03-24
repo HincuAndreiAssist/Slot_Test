@@ -11,5 +11,7 @@ namespace Slot_Test.Entities
         public Guid UserId { get; set; }
         public double Win { get; set; }
         public double Value { get; set; }
+        public double Multiplier { get; set; }
+        public string Combination { get; set; }
     }
 }
