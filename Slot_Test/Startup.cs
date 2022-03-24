@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using Slot_Test.Repositories.Database;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,10 @@ namespace Slot_Test
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TownGuardianApi", Version = "v1" });
+            });
             //services.Configure<AppConfig>(Configuration.GetSection("ConnectionStrings"));
 
             //services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
@@ -43,6 +48,12 @@ namespace Slot_Test
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SlotTestApi v1");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseHttpsRedirection();
 
