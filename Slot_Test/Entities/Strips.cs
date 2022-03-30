@@ -7,8 +7,8 @@ namespace Slot_Test.Entities
 {
     public class Strips
     {
-        public string ReelOne { get; set; }
-        public string ReelTwo { get; set; }
-        public string ReelThree { get; set; }
+        public int ReelOne { get; set; }
+        public int ReelTwo { get; set; }
+        public int ReelThree { get; set; }
     }
 }
