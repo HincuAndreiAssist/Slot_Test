@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		   xmlns:ptc="http://www.hermes-softlab.com/PT_config/v0.0.3"
+		   attributeFormDefault="unqualified" elementFormDefault="qualified"
+		   targetNamespace="http://www.hermes-softlab.com/PT_config/v0.0.3"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="config">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="admin">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="payTable">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute ref="ptc:name" use="required" />
+											<xs:attribute ref="ptc:description" use="required" />
+											<xs:attribute ref="ptc:baseGameName" use="required" />
+											<xs:attribute ref="ptc:paylineDescriptionType" use="required" />
+											<xs:attribute ref="ptc:slotBetType" use="required" />
+											<xs:attribute ref="ptc:minBetCredits" use="required" />
+											<xs:attribute ref="ptc:maxUsdWinLimit" use="required" />
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="reelGame">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="prop">
+								<xs:complexType>
+									<xs:attribute ref="ptc:numReels" use="required" />
+									<xs:attribute ref="ptc:windowHeight" use="required" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="symbolList">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element maxOccurs="unbounded" name="symbol">
+											<xs:complexType>
+												<xs:attribute ref="ptc:symbolId" use="required" />
+												<xs:attribute ref="ptc:symbolName" use="required" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="reelConfigList">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element maxOccurs="unbounded" name="reelConfig">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" name="symbol">
+														<xs:complexType>
+															<xs:attribute ref="ptc:reelPosition" use="required" />
+															<xs:attribute ref="ptc:symbolName" use="required" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute ref="ptc:reelId" use="required" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" name="winComboList">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="sameAs">
+											<xs:complexType>
+												<xs:attribute ref="ptc:game" use="required" />
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" maxOccurs="unbounded" name="winCombo">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="triggerPayline">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element maxOccurs="unbounded" name="symbol">
+																	<xs:complexType>
+																		<xs:attribute ref="ptc:symbolName" use="required" />
+																		<xs:attribute ref="ptc:reelId" use="required" />
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element minOccurs="0" name="triggerAllWays">
+														<xs:complexType>
+															<xs:attribute ref="ptc:numOfSymbols" use="required" />
+															<xs:attribute ref="ptc:symbolName" use="required" />
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="prizeBetMultiplier">
+														<xs:complexType>
+															<xs:attribute ref="ptc:betToWinFactor" use="required" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute ref="ptc:winComboId" use="required" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute ref="ptc:gameVariation" use="required" />
+						<xs:attribute ref="ptc:gameName" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:attribute name="name" type="xs:string" />
+	<xs:attribute name="description" type="xs:string" />
+	<xs:attribute name="baseGameName" type="xs:string" />
+	<xs:attribute name="paylineDescriptionType" type="xs:string" />
+	<xs:attribute name="slotBetType" type="xs:string" />
+	<xs:attribute name="minBetCredits" type="xs:unsignedByte" />
+	<xs:attribute name="maxUsdWinLimit" type="xs:unsignedByte" />
+	<xs:attribute name="gameVariation" type="xs:string" />
+	<xs:attribute name="gameName" type="xs:string" />
+	<xs:attribute name="numReels" type="xs:unsignedByte" />
+	<xs:attribute name="windowHeight" type="xs:unsignedByte" />
+	<xs:attribute name="symbolId" type="xs:unsignedByte" />
+	<xs:attribute name="symbolName" type="xs:string" />
+	<xs:attribute name="reelId" type="xs:unsignedByte" />
+	<xs:attribute name="reelPosition" type="xs:unsignedByte" />
+	<xs:attribute name="winComboId" type="xs:unsignedByte" />
+	<xs:attribute name="numOfSymbols" type="xs:unsignedByte" />
+	<xs:attribute name="betToWinFactor" type="xs:unsignedByte" />
+	<xs:attribute name="game" type="xs:string" />
+</xs:schema>

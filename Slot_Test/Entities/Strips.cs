@@ -10,5 +10,6 @@ namespace Slot_Test.Entities
         public string ReelOne { get; set; }
         public string ReelTwo { get; set; }
         public string ReelThree { get; set; }
+        public double Pays { get; set; }
     }
 }

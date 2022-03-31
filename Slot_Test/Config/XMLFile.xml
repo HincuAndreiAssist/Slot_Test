@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ptc:config xmlns="http://www.hermes-softlab.com/PT_config/v0.0.3"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:ptc="http://www.hermes-softlab.com/PT_config/v0.0.3"
+  xsi:schemaLocation="http://www.hermes-softlab.com/PT_config/v0.0.3 ..\..\Core\PaytableConfigSchema.xsd">
+
+	<ptc:admin>
+		<ptc:payTable ptc:name="Liberty Bell, 75.6%"
+					  ptc:description="Paytable for 3-reel Animal Lady slot game"
+					  ptc:baseGameName="base"
+					  ptc:paylineDescriptionType="CONCATENATED_STRING"
+					  ptc:slotBetType="BET_PER_GAME"
+					  ptc:minBetCredits="1"
+					  ptc:maxUsdWinLimit="50">
+		</ptc:payTable>
+	</ptc:admin>
+	<ptc:reelGame ptc:gameVariation="PTC_Base" ptc:gameName="base">
+		<ptc:prop ptc:numReels="5" ptc:windowHeight="3"></ptc:prop>
+		<ptc:symbolList>
+			<ptc:symbol ptc:symbolId="0" ptc:symbolName="Bell" />
+			<ptc:symbol ptc:symbolId="1" ptc:symbolName="Heart" />
+			<ptc:symbol ptc:symbolId="2" ptc:symbolName="Diamond" />
+			<ptc:symbol ptc:symbolId="3" ptc:symbolName="Spade" />
+			<ptc:symbol ptc:symbolId="4" ptc:symbolName="Horseshoe" />
+			<ptc:symbol ptc:symbolId="5" ptc:symbolName="Star" />
+		</ptc:symbolList>
+		<ptc:reelConfigList>
+			<ptc:reelConfig ptc:reelId="0">
+				<ptc:symbol ptc:reelPosition="0" ptc:symbolName="Bell" />
+				<ptc:symbol ptc:reelPosition="1" ptc:symbolName="Horseshoe" />
+				<ptc:symbol ptc:reelPosition="2" ptc:symbolName="Spade" />
+				<ptc:symbol ptc:reelPosition="3" ptc:symbolName="Horseshoe" />
+				<ptc:symbol ptc:reelPosition="4" ptc:symbolName="Diamond" />
+				<ptc:symbol ptc:reelPosition="5" ptc:symbolName="Horseshoe" />
+				<ptc:symbol ptc:reelPosition="6" ptc:symbolName="Spade" />
+				<ptc:symbol ptc:reelPosition="7" ptc:symbolName="Horseshoe" />
+				<ptc:symbol ptc:reelPosition="8" ptc:symbolName="Heart" />
+				<ptc:symbol ptc:reelPosition="9" ptc:symbolName="Horseshoe" />				
+			</ptc:reelConfig>
+			<ptc:reelConfig ptc:reelId="1">
+				<ptc:symbol ptc:reelPosition="0" ptc:symbolName="Bell" />
+				<ptc:symbol ptc:reelPosition="1" ptc:symbolName="Horseshoe" />
+				<ptc:symbol ptc:reelPosition="2" ptc:symbolName="Spade" />
+				<ptc:symbol ptc:reelPosition="3" ptc:symbolName="Horseshoe" />
+				<ptc:symbol ptc:reelPosition="4" ptc:symbolName="Diamond" />
+				<ptc:symbol ptc:reelPosition="5" ptc:symbolName="Horseshoe" />
+				<ptc:symbol ptc:reelPosition="6" ptc:symbolName="Spade" />
+				<ptc:symbol ptc:reelPosition="7" ptc:symbolName="Horseshoe" />
+				<ptc:symbol ptc:reelPosition="8" ptc:symbolName="Heart" />
+				<ptc:symbol ptc:reelPosition="9" ptc:symbolName="Horseshoe" />
+			</ptc:reelConfig>
+			<ptc:reelConfig ptc:reelId="2">
+				<ptc:symbol ptc:reelPosition="0" ptc:symbolName="Bell" />
+				<ptc:symbol ptc:reelPosition="1" ptc:symbolName="Horseshoe" />
+				<ptc:symbol ptc:reelPosition="2" ptc:symbolName="Spade" />
+				<ptc:symbol ptc:reelPosition="3" ptc:symbolName="Horseshoe" />
+				<ptc:symbol ptc:reelPosition="4" ptc:symbolName="Diamond" />
+				<ptc:symbol ptc:reelPosition="5" ptc:symbolName="Horseshoe" />
+				<ptc:symbol ptc:reelPosition="6" ptc:symbolName="Spade" />
+				<ptc:symbol ptc:reelPosition="7" ptc:symbolName="Horseshoe" />
+				<ptc:symbol ptc:reelPosition="8" ptc:symbolName="Heart" />
+				<ptc:symbol ptc:reelPosition="9" ptc:symbolName="Horseshoe" />
+			</ptc:reelConfig>			
+		</ptc:reelConfigList>
+		<ptc:winComboList>
+			<ptc:winCombo ptc:winComboId="0">
+				<ptc:triggerAllWays ptc:numOfSymbols="3" ptc:symbolName="Bell" />
+				<ptc:prizeBetMultiplier ptc:betToWinFactor="20"/>
+			</ptc:winCombo>
+			<ptc:winCombo ptc:winComboId="1">
+				<ptc:triggerAllWays ptc:numOfSymbols="3" ptc:symbolName="Heart" />
+				<ptc:prizeBetMultiplier ptc:betToWinFactor="16"/>
+			</ptc:winCombo>
+			<ptc:winCombo ptc:winComboId="2">
+				<ptc:triggerAllWays ptc:numOfSymbols="5" ptc:symbolName="Diamond" />
+				<ptc:prizeBetMultiplier ptc:betToWinFactor="12"/>
+			</ptc:winCombo>
+			<ptc:winCombo ptc:winComboId="3">
+				<ptc:triggerAllWays ptc:numOfSymbols="3" ptc:symbolName="Spade" />
+				<ptc:prizeBetMultiplier ptc:betToWinFactor="8"/>
+			</ptc:winCombo>
+			<ptc:winCombo ptc:winComboId="4">
+				<ptc:triggerPayline>
+					<ptc:symbol ptc:symbolName="Horseshoe" ptc:reelId="0" />
+					<ptc:symbol ptc:symbolName="Horseshoe" ptc:reelId="1" />
+					<ptc:symbol ptc:symbolName="Star" ptc:reelId="2" />
+				</ptc:triggerPayline>
+				<ptc:prizeBetMultiplier ptc:betToWinFactor="4" />
+			</ptc:winCombo>
+			<ptc:winCombo ptc:winComboId="5">
+				<ptc:triggerPayline>
+					<ptc:symbol ptc:symbolName="Horseshoe" ptc:reelId="0" />
+					<ptc:symbol ptc:symbolName="Horseshoe" ptc:reelId="1" />
+				</ptc:triggerPayline>
+				<ptc:prizeBetMultiplier ptc:betToWinFactor="2" />
+			</ptc:winCombo>			
+		</ptc:winComboList>	
+		<ptc:winComboList>
+			<ptc:sameAs ptc:game="base"/>
+		</ptc:winComboList>
+	</ptc:reelGame>
+
+	
+
+</ptc:config>
+
+
+
