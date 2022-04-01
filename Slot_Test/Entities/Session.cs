@@ -12,6 +12,8 @@ namespace Slot_Test.Entities
         public double Win { get; set; }
         public double Value { get; set; }
         public double Multiplier { get; set; }
-        public string Combination { get; set; }
+        public string UpperCombination { get; set; }
+        public string WinningCombination { get; set; }
+        public string LowerCombination { get; set; }
     }
 }

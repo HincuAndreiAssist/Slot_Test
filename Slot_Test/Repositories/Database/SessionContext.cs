@@ -25,7 +25,7 @@ namespace Slot_Test.Repositories.Database
 
             builder.Property(ti => ti.Multiplier);
 
-            builder.Property(ti => ti.Combination);
+            //builder.Property(ti => ti.Combination);
 
         }
     }

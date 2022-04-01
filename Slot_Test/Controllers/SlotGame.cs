@@ -56,37 +56,43 @@ namespace Slot_Test.Controllers
 
         private Session SimulateSpin(int betAmount)
         {
+            string[] reelOne = new string[] { "Horseshoe", "Bell", "Horseshoe", "Spade", "Horseshoe", "Diamond", "Horseshoe", "Spade", "Horseshoe", "Heart", "Horseshoe", "Bell"};
+            string[] reelTwo = new string[] { "Horseshoe", "Bell", "Horseshoe", "Spade", "Horseshoe", "Diamond", "Horseshoe", "Spade", "Horseshoe", "Heart", "Horseshoe", "Bell"};
+            string[] reelThree = new string[] { "Diamond", "Bell", "Diamond", "Star", "Spade", "Bell", "Diamond", "Heart", "Star", "Spade", "Diamond", "Bell"};
+            Random rd = new Random();
             Strips strip = new Strips
             {
-                ReelOne = randomReelOne(),
-                ReelTwo = randomReelTwo(),
-                ReelThree = randomReelThree()
+                ReelOne = rd.Next(1, 11),
+                ReelTwo = rd.Next(1, 11),
+                ReelThree = rd.Next(1, 11)
             };
 
             Session spinSession = new Session
             {
-                Combination = strip.ReelOne + " " + strip.ReelTwo + " " + strip.ReelThree
+                WinningCombination = reelOne[strip.ReelOne] + " " + reelTwo[strip.ReelTwo] + " " + reelThree[strip.ReelThree],
+                UpperCombination = reelOne[strip.ReelOne - 1] + " " + reelTwo[strip.ReelTwo - 1] + " " + reelThree[strip.ReelThree - 1],
+                LowerCombination = reelOne[strip.ReelOne + 1] + " " + reelTwo[strip.ReelTwo + 1] + " " + reelThree[strip.ReelThree + 1]
             };
 
 
-            switch (strip.ReelOne)
+            switch (reelOne[strip.ReelOne])
             {
-                case "Bell" when strip.ReelTwo == "Bell" && strip.ReelThree == "Bell":
+                case "Bell" when reelTwo[strip.ReelTwo] == "Bell" && reelThree[strip.ReelThree] == "Bell":
                     spinSession.Multiplier = 20;
                     break;
-                case "Heart" when strip.ReelTwo == "Heart" && strip.ReelThree == "Heart":
+                case "Heart" when reelTwo[strip.ReelTwo] == "Heart" && reelThree[strip.ReelThree] == "Heart":
                     spinSession.Multiplier = 16;
                     break;
-                case "Diamond" when strip.ReelTwo == "Diamond" && strip.ReelThree == "Diamond":
+                case "Diamond" when reelTwo[strip.ReelTwo] == "Diamond" && reelThree[strip.ReelThree] == "Diamond":
                     spinSession.Multiplier = 12;
                     break;
-                case "Spade" when strip.ReelTwo == "Spade" && strip.ReelThree == "Spade":
+                case "Spade" when reelTwo[strip.ReelTwo] == "Spade" && reelThree[strip.ReelThree] == "Spade":
                     spinSession.Multiplier = 8;
                     break;
-                case "Horseshoe" when strip.ReelTwo == "Horseshoe" && strip.ReelThree == "Star":
+                case "Horseshoe" when reelTwo[strip.ReelTwo] == "Horseshoe" && reelThree[strip.ReelThree] == "Star":
                     spinSession.Multiplier = 4;
                     break;
-                case "Horseshoe" when strip.ReelTwo == "Horseshoe" && strip.ReelThree != "Star":
+                case "Horseshoe" when reelTwo[strip.ReelTwo] == "Horseshoe" && reelThree[strip.ReelThree] != "Star":
                     spinSession.Multiplier = 2;
                     break;
                 default:
@@ -97,66 +103,6 @@ namespace Slot_Test.Controllers
             spinSession.Win = betAmount * spinSession.Multiplier;
 
             return spinSession;
-        }
-
-        private string randomReelThree()
-        {
-            Random rd = new Random();
-            var randomNumber = rd.Next(0, 100);
-
-            switch (randomNumber)
-            {
-                case int n when (n < 20):
-                    return "Bell";
-                case int n when (n < 30):
-                    return "Heart";
-                case int n when (n < 60):
-                    return "Diamond";
-                case int n when (n < 80):
-                    return "Spade";
-                default:
-                    return "Star";
-            }
-        }
-
-        private string randomReelTwo()
-        {
-            Random rd = new Random();
-            var randomNumber = rd.Next(0, 100);
-
-            switch (randomNumber)
-            {
-                case int n when (n < 10):
-                    return "Bell";
-                case int n when (n < 20):
-                    return "Heart";
-                case int n when (n < 30):
-                    return "Diamond";
-                case int n when (n < 50):
-                    return "Spade";
-                default:
-                    return "Horseshoe";
-            }
-        }
-
-        private string randomReelOne()
-        {
-            Random rd = new Random();
-            var randomNumber = rd.Next(0, 100);
-    
-            switch (randomNumber)
-            {
-                case int n when (n < 10):
-                    return "Bell";
-                case int n when (n < 20):
-                    return "Heart";
-                case int n when (n < 30):
-                    return "Diamond";
-                case int n when (n < 50):
-                    return "Spade";
-                default:
-                    return "Horseshoe";
-            }
         }
     }
 }
