@@ -7,7 +7,7 @@
 
 	<ptc:admin>
 		<ptc:payTable ptc:name="Liberty Bell, 75.6%"
-					  ptc:description="Paytable for 3-reel Animal Lady slot game"
+					  ptc:description="Paytable for 3-reel Liberty Bell slot game"
 					  ptc:baseGameName="base"
 					  ptc:paylineDescriptionType="CONCATENATED_STRING"
 					  ptc:slotBetType="BET_PER_GAME"
@@ -16,7 +16,7 @@
 		</ptc:payTable>
 	</ptc:admin>
 	<ptc:reelGame ptc:gameVariation="PTC_Base" ptc:gameName="base">
-		<ptc:prop ptc:numReels="5" ptc:windowHeight="3"></ptc:prop>
+		<ptc:prop ptc:numReels="3" ptc:windowHeight="3"></ptc:prop>
 		<ptc:symbolList>
 			<ptc:symbol ptc:symbolId="0" ptc:symbolName="Bell" />
 			<ptc:symbol ptc:symbolId="1" ptc:symbolName="Heart" />
