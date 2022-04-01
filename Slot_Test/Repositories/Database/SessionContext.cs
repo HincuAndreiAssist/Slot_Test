@@ -25,6 +25,12 @@ namespace Slot_Test.Repositories.Database
 
             builder.Property(ti => ti.Multiplier);
 
+            builder.Property(ti => ti.UpperCombination);
+
+            builder.Property(ti => ti.WinningCombination);
+
+            builder.Property(ti => ti.LowerCombination);
+
             //builder.Property(ti => ti.Combination);
 
         }
