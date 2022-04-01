@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Slot_Test.Entities;
+using Slot_Test.Repositories.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,18 +13,32 @@ namespace Slot_Test.Controllers
     [Route("[controller]")]
     public class SlotGame : ControllerBase
     {
-        
-        public SlotGame()
+        private readonly WebApiContext context;
+        private readonly DbSet<User> dbSet;
+
+        public SlotGame(WebApiContext context)
         {
-            
+            this.context = context;
+            dbSet = context.Set<User>();
         }
 
         [HttpGet]
         [Route("spin")]
-        public IActionResult Spin(int betAmount)
+        public async Task<IActionResult> Spin(int betAmount, Guid id)
         {
-            return Ok(SimulateSpin(betAmount));
+            var result = SimulateSpin(betAmount);
+            var user = await dbSet.Where(e => e.Id == id).FirstOrDefaultAsync();
+            user.Wallet -= betAmount;
+            user.Wallet += result.Win;
+            result.UserId = user.Id;
+            result.Value = betAmount;
+            var addedSession = context.Session.Add(result);
+            await context.SaveChangesAsync();
+
+            return Ok(result);
         }
+
+       
 
         [HttpGet]
         [Route("calculate-rtp")]
