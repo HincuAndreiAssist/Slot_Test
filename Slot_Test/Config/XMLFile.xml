@@ -3,7 +3,7 @@
 <ptc:config xmlns="http://www.hermes-softlab.com/PT_config/v0.0.3"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:ptc="http://www.hermes-softlab.com/PT_config/v0.0.3"
-  xsi:schemaLocation="http://www.hermes-softlab.com/PT_config/v0.0.3 ..\..\Core\PaytableConfigSchema.xsd">
+  xsi:schemaLocation="http://www.hermes-softlab.com/PT_config/v0.0.3 XMLSchema.xsd">
 
 	<ptc:admin>
 		<ptc:payTable ptc:name="Liberty Bell, 75.6%"
